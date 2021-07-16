@@ -1,0 +1,9 @@
+
+version: '2.2'
+services:
+    postgres:
+      image: postgres:12.2
+      environment:
+        - POSTGRES_PASSWORD=dalong
+      ports:
+        - 5432:5432

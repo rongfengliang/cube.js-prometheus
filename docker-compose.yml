@@ -1,9 +1,18 @@
-
-version: '2.2'
+version: "2.2"
 services:
-    postgres:
-      image: postgres:12.2
-      environment:
-        - POSTGRES_PASSWORD=dalong
-      ports:
-        - 5432:5432
+  postgres:
+    image: postgres:12.2
+    environment:
+      - POSTGRES_PASSWORD=dalong
+    ports:
+      - 5432:5432
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - "./prometheus.yml:/etc/prometheus/prometheus.yml"
+    ports:
+      - "9090:9090"
